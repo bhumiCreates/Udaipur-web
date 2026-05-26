@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: font1;
+  src: url(../src/assets/Fonts/Runiga.otf);
+}
+
+body{
+  background: #2b2b2b;
+}
