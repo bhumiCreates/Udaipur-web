@@ -21,7 +21,7 @@ const Events = () => {
     gsap.to(imageDivRef.current,{
       scrollTrigger:{
       trigger:imageDivRef.current,
-      markers:true,
+      markers:false,
       start:'top 30%',
       end:'top -90%',
       pin:true,
@@ -49,14 +49,15 @@ const Events = () => {
   return (
     <div className="parent text-black">
       <div id='page1' className="py-1">
-        <div ref={imageDivRef} className=" h-[20vw] w-[15vw] shadow-black shadow-2xl rounded-xl absolute top-[15vh] left-[22vw] overflow-hidden ">
+        <div ref={imageDivRef} className=" h-[20vw] w-[15vw] shadow-black shadow-2xl rounded-xl absolute top-[20vh] left-[22vw] overflow-hidden ">
           <img ref={imageRef}
             className="h-full w-full "
             src="https://i.pinimg.com/736x/43/5f/0f/435f0fa2571ae6f466555657a4c718d2.jpg"
             alt="Events"
           />
         </div>
-        <div className=" relative font-[font1]">
+        <div className="
+         relative font-[font1]">
           <div className="mt-[60vh]">
             <h1 className="text-[17vw] text-center uppercase leading-[35vh]">
               Upcoming <br /> Events

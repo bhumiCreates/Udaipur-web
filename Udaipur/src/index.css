@@ -4,6 +4,10 @@
   font-family: font1;
   src: url(../src/assets/Fonts/Runiga.otf);
 }
+@font-face {
+  font-family: font2;
+  src: url(../src/assets/Fonts/COVERS\ SHORES\ DEMO.ttf);
+}
 
 body{
   overflow-x:hidden;
