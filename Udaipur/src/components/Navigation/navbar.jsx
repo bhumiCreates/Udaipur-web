@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 flex w-full items-start justify-between">
-      <div className="border m-3 h-[8vh] w-[12vw] text-[4vh] text-black font-[font2] text-center p-2 rounded-br-3xl rounded-tl-3xl shadow-xl ">
+      <div className="border m-3 h-[8vh] min-w-40 w-[12vw] text-[4vh] text-black font-[font2] text-center p-2 rounded-br-3xl rounded-tl-3xl shadow-xl ">
         Udaipur 
       </div>
 
@@ -17,7 +17,7 @@ const Navbar = () => {
         onMouseLeave={() => {
           navGreenRef.current.style.height = "0%";
         }}
-        className="relative h-[7vh] w-[4vw] overflow-hidden border border-black flex items-center justify-center"
+        className="relative rounded-br-xl rounded-tl-xl m-3 h-[7vh]  w-[4vw] min-w-10 overflow-hidden border border-black flex items-center justify-center"
       >
         <div
           ref={navGreenRef}
