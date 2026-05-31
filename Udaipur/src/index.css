@@ -28,6 +28,7 @@ body{
 
 .link:hover .moveLink{
   opacity:1;
+  transition:ease-in-out 300ms;
 }
 
 @keyframes moveAnimation {
