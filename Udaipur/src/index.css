@@ -14,6 +14,7 @@ body{
 }
 
 .moveX{
+  animation-delay: 1s;
   animation-name:moveAnimation;
   animation-duration: 15s;
   animation-iteration-count: infinite;
@@ -36,4 +37,8 @@ body{
   to{
     transform: translateX(-100%);
   }
+}
+
+.link{
+  border-color: gray;
 }
