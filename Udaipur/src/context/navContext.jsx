@@ -4,7 +4,7 @@ export const navbarContext = createContext()
 
 const navContext = ({children}) => {
    
-   const [navOpen, setNavOpen] = useState(true)
+   const [navOpen, setNavOpen] = useState(false)
   return (
     <div>
       <navbarContext.Provider value={[navOpen, setNavOpen]}>

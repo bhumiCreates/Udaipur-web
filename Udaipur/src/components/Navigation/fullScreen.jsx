@@ -49,10 +49,10 @@ const fullScreen = () => {
   return (
     <div ref={fullScreenRef}
       id="fullScreen" 
-      className="z-60 text-white hidden overflow-x-hidden h-screen w-full absolute bg-red-900"
+      className="z-60 text-white hidden overflow-x-hidden h-screen w-full absolute "
     >
       <div className="h-screen w-full fixed ">
-        <div className='h-full flex fixed w-full top-0 z-10'>
+        <div className='h-full flex w-full top-0 z-10'>
         <div className=' stairRing h-full w-1/5 bg-black'></div>
         <div className=' stairRing h-full w-1/5 bg-black'></div>
         <div className=' stairRing h-full w-1/5 bg-black'></div>
@@ -66,7 +66,9 @@ const fullScreen = () => {
         <div className="border h-[8vh] min-w-40 w-[12vw] text-[4vh] text-white font-[font2] text-center p-2 rounded-br-3xl rounded-tl-3xl shadow-xl ">
         Udaipur 
         </div>
-        <svg 
+        <svg onClick={()=>{
+          setNavOpen(false)
+        }}
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"
