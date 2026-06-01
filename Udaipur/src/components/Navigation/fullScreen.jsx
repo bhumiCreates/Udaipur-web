@@ -6,64 +6,85 @@ import React, { useContext, useRef } from "react";
 const fullScreen = () => {
 
   const fullNavLinkRef = useRef(null)
-  // const navbarData = useContext(navbarContext)
   const fullScreenRef = useRef(null)
 
   const [navOpen, setNavOpen] = useContext(navbarContext)
 
 
-    useGSAP(function () {
-    const tl = gsap.timeline()
-    tl.to('#fullScreenNav',{
-      display:'block'
-    })
-
-    tl.from('.stairRing',{
-      height:0,
-      stagger:{
-        amount:-0.25
-      }
-    })
-    tl.from(fullNavLinkRef.current,{
-      opacity:0
-    })
-    tl.from('.link',{
-      opacity:0,
-      rotateX:90,
-      stagger:{
-        amount:-0.25
-      }
-    })
-
-    tl.pause()
-
-    if(navOpen){
-      fullScreenRef.current.style.display = 'block'
-      tl.play()
-    }else{
-      fullScreenRef.current.style.display = 'none'
-      tl.reverse()
+    function gsapAnimation() {
+        const tl = gsap.timeline()
+        tl.to('.fullScreenNav', {
+            display: 'block'
+        })
+        tl.to('.stairing', {
+            height: '100%',
+            stagger: {
+                amount: -0.3
+            }
+        })
+        tl.to('.link', {
+            opacity: 1,
+            rotateX: 0,
+            stagger: {
+                amount: 0.3
+            }
+        })
+        tl.to('.navLink', {
+            opacity: 1
+        })
     }
-  },[navOpen])
+    function gsapAnimationReverse() {
+        const tl = gsap.timeline()
+        tl.to('.link', {
+            opacity: 0,
+            rotateX: 90,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        tl.to('.stairing', {
+            height: 0,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        tl.to('.navLink', {
+            opacity: 0
+        })
+        tl.to('.fullScreenNav', {
+            display: 'none',
+        })
+    }
+
+
+    useGSAP(function () {
+        if (navOpen) {
+
+            gsapAnimation()
+        } else {
+
+            gsapAnimationReverse()
+
+        }
+    }, [navOpen])
 
   return (
     <div ref={fullScreenRef}
-      id="fullScreen" 
-      className="z-60 text-white hidden overflow-x-hidden h-screen w-full absolute "
+      className="fullScreenNav z-60 text-white hidden overflow-x-hidden h-screen w-full absolute "
     >
       <div className="h-screen w-full fixed ">
         <div className='h-full flex w-full top-0 z-10'>
-        <div className=' stairRing h-full w-1/5 bg-black'></div>
-        <div className=' stairRing h-full w-1/5 bg-black'></div>
-        <div className=' stairRing h-full w-1/5 bg-black'></div>
-        <div className=' stairRing h-full w-1/5 bg-black'></div>
-        <div className=' stairRing h-full w-1/5 bg-black'></div>
+        <div className=' stairing h-full w-1/5 bg-black'></div>
+        <div className=' stairing h-full w-1/5 bg-black'></div>
+        <div className=' stairing h-full w-1/5 bg-black'></div>
+        <div className=' stairing h-full w-1/5 bg-black'></div>
+        <div className=' stairing h-full w-1/5 bg-black'></div>
       </div>
       </div>
       <div ref={fullNavLinkRef} className='relative'>
       <div>
-        <div className="flex w-full justify-between items-center px-4 py-2  ">
-        <div className="border h-[8vh] min-w-40 w-[12vw] text-[4vh] text-white font-[font2] text-center p-2 rounded-br-3xl rounded-tl-3xl shadow-xl ">
+        <div className="lg:flex w-full justify-between items-center px-4 py-2  ">
+        <div className="lg:border h-[8vh] min-w-40 w-[12vw] text-[4vh] text-white font-[font2] text-center p-2 rounded-br-3xl rounded-tl-3xl shadow-xl ">
         Udaipur 
         </div>
         <svg onClick={()=>{
@@ -93,14 +114,14 @@ const fullScreen = () => {
                 Feel the energy of music
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/flagged/photo-1566843918030-3c250670245d?q=80&w=1015&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <h2 className="whitespace-nowrap font-[font1] leading-none pt-1 text-[13vh] uppercase">
                 Feel the energy of music
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1619229666372-3c26c399a4cb?q=80&w=1015&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
@@ -109,14 +130,14 @@ const fullScreen = () => {
                 Feel the energy of music
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/flagged/photo-1566843918030-3c250670245d?q=80&w=1015&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <h2 className="whitespace-nowrap font-[font1] leading-none pt-1 text-[13vh] uppercase">
                 Feel the energy of music
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1619229666372-3c26c399a4cb?q=80&w=1015&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
@@ -132,14 +153,14 @@ const fullScreen = () => {
                 Experience the folks of rajastan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://plus.unsplash.com/premium_photo-1718570256660-462115d86304?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <h2 className="whitespace-nowrap font-[font1] leading-none pt-1 text-[13vh] uppercase">
                 Experience the folks of rajastan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1681731030357-829645dd55b1?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
@@ -148,14 +169,14 @@ const fullScreen = () => {
                 Experience the folks of rajastan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://plus.unsplash.com/premium_photo-1718570256660-462115d86304?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <h2 className="whitespace-nowrap font-[font1] leading-none pt-1 text-[13vh] uppercase">
                 Experience the folks of rajastan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1681731030357-829645dd55b1?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
             </div>
@@ -171,14 +192,14 @@ const fullScreen = () => {
                 The Pride of Rajasthan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1717131553948-13c2c59c7293?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <h2 className="whitespace-nowrap font-[font1] leading-none pt-1 text-[13vh] uppercase">
                 The Pride of Rajasthan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1769718460805-97642006a6bc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGFubnVhbCUyMGV2ZW50cyUyMGluJTIwcmFqYXN0aGFufGVufDB8MHwwfHx8MA%3D%3D"
               />
             </div>
@@ -187,14 +208,14 @@ const fullScreen = () => {
                 The Pride of Rajasthan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1717131553948-13c2c59c7293?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               />
               <h2 className="whitespace-nowrap font-[font1] leading-none pt-1 text-[13vh] uppercase">
                 The Pride of Rajasthan
               </h2>
               <img
-                className="object-cover shrink-0 h-25 py-3 rounded-full "
+                className="lg:object-cover shrink-0 h-25 py-3 rounded-full "
                 src="https://images.unsplash.com/photo-1769718460805-97642006a6bc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fGFubnVhbCUyMGV2ZW50cyUyMGluJTIwcmFqYXN0aGFufGVufDB8MHwwfHx8MA%3D%3D"
               />
             </div>
