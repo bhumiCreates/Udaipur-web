@@ -32,7 +32,7 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 50 50"
-          className={`relative z-20 h-7 w-12 cursor-pointer transition-all duration-500 ${
+          className={`relative h-7 w-12 cursor-pointer transition-all duration-500 ${
             open ? "rotate-90 scale-110" : ""
           }`}
         >
