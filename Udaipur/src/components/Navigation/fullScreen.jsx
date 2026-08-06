@@ -80,7 +80,7 @@ const fullScreen = () => {
       </div>
       <div ref={fullNavLinkRef} className='navLink relative'>
       <div>
-        <div className="lg:flex w-full justify-between items-center px-4 py-2  ">
+        <div className="lg:flex w-full justify-between items-center px-5 py-2  ">
         <div className="lg:border h-[8vh] min-w-40 w-[12vw] text-[4vh] text-white font-[font2] text-center p-2 rounded-br-3xl rounded-tl-3xl shadow-xl ">
         Udaipur 
         </div>
